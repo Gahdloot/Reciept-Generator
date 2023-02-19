@@ -24,7 +24,7 @@ class Reciepts(models.Model):
         return super().save(*args, **kwargs)
 
     @property
-    def reciept(self):
+    def reciept_number(self):
         return self.pk + last_payment_id
 
     def __str__(self):
