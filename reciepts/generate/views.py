@@ -8,19 +8,19 @@ from django.urls import reverse
 
 def home(request):
     if request.method == 'GET':
-        return render(request, 'reciepts/home.html')
+        return render(request, 'generate/home.html')
     else:
         if request.method == 'POST':
             data = Reciepts()
-            data.amount = request.data['amount']
-            data.name_student = request.data['name_student']
-            data.name_Payer = request.data['name_Payer']
-            data.description = request.data['description']
+            data.amount = request.POST['amount']
+            data.name_student = request.POST['name_student']
+            data.name_Payer = request.POST['name_Payer']
+            data.description = request.POST['description']
             data.save()
-            return HttpResponseRedirect(reverse('reciepts:reciept', args=(data.reciept_number,)))
+            return HttpResponseRedirect(reverse('reciepts:reciept', args=(data.pk,)))
 
 
-def reciepts(request, reciept):
-    data = Reciepts.objects.get(reciept_number=reciept)
+def reciepts(request, num):
+    data = Reciepts.objects.get(pk=num)
     context = {'Reciepts': data}
-    return render(request, 'reciepts/home.html', context)
+    return render(request, 'generate/reciepts.html', context)

@@ -1,41 +1,42 @@
 <!DOCTYPE html>
+{% load static %}
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
     <title>FORM</title>
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="{% static 'generate/style.css' %}">
   </head>
   <body>
     <div class="container">
       <h3 class="text-center">Enter Reciept Details</h3>
-        <form>
+        <form action="{% url 'reciepts:home'%}" method="post">
             {% csrf_token %}
             <div class="form-group">
-                <label for="">Student Name</label>
-                <input type="text" name="student_name" value="" required>
+                <label for="name_student">Student Name</label>
+                <input type="text" name="name_student" id="name_student" value="" required>
             </div>
 
             <div class="form-group">
-                <label for="">Payer Name</label>
-                <input type="text" name="" value="" required>
+                <label for="name_Payer">Payer Name</label>
+                <input type="text" name="name_Payer" id="name_Payer" value="" required>
             </div>
 
             <div class="form-row">
               <div class="form-group">
-                  <label for="">Amount</label>
-                  <input type="text" name="" value="" required>
+                  <label for="amount">Amount</label>
+                  <input type="number" name="amount" id="amount" value="" required>
               </div>
               <div class="form-group">
-                  <label for="">Balance</label>
-                  <input type="text" name="" value="" required>
+                  <label for="balance">Balance</label>
+                  <input type="number" name="balance" id="balance" value="" required>
               </div>
             </div>
 
 
 
             <div class="form-group">
-                <label for="">Description</label>
-                <textarea name="name" required></textarea>
+                <label for="description">Description</label>
+                <textarea name="description" id="description" required></textarea>
             </div>
 
             <button type="submit" name="button" class="btn-group" >SUBMIT</button>

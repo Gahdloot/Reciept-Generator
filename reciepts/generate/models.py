@@ -26,6 +26,8 @@ class Reciepts(models.Model):
 
     @property
     def reciept_number(self):
+        number = self.pk + last_payment_id
+        self.save()
         return self.pk + last_payment_id
 
     def __str__(self):
