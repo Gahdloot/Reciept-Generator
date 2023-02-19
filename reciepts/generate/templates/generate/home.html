@@ -1,10 +1,45 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>FORM</title>
+    <link rel="stylesheet" href="css/style.css">
+  </head>
+  <body>
+    <div class="container">
+      <h3 class="text-center">Enter Reciept Details</h3>
+        <form>
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="">Student Name</label>
+                <input type="text" name="student_name" value="" required>
+            </div>
 
-</body>
+            <div class="form-group">
+                <label for="">Payer Name</label>
+                <input type="text" name="" value="" required>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                  <label for="">Amount</label>
+                  <input type="text" name="" value="" required>
+              </div>
+              <div class="form-group">
+                  <label for="">Balance</label>
+                  <input type="text" name="" value="" required>
+              </div>
+            </div>
+
+
+
+            <div class="form-group">
+                <label for="">Description</label>
+                <textarea name="name" required></textarea>
+            </div>
+
+            <button type="submit" name="button" class="btn-group" >SUBMIT</button>
+        </form>
+    </div>
+  </body>
 </html>
