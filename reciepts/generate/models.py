@@ -11,6 +11,7 @@ class Reciepts(models.Model):
     # add unique
     number = models.IntegerField(default=1)
     amount = models.IntegerField(default=0)
+    balance = models.IntegerField(default=0)
     name_student = models.CharField(max_length=100)
     name_Payer = models.CharField(max_length=100)
     description = models.CharField(max_length=120)
