@@ -16,6 +16,7 @@ def home(request):
             data.name_student = request.POST['name_student']
             data.name_Payer = request.POST['name_Payer']
             data.description = request.POST['description']
+            data.balance = request.POST['balance']
             data.save()
             return HttpResponseRedirect(reverse('reciepts:reciept', args=(data.pk,)))
 
