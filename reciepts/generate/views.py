@@ -25,3 +25,13 @@ def reciepts(request, num):
     data = Reciepts.objects.get(pk=num)
     context = {'Reciepts': data}
     return render(request, 'generate/reciepts.html', context)
+
+def getRecent(request):
+    """
+
+    :param request: httprequest
+    :return: a list of all the reciepts that have been issued
+    """
+    data = Reciepts.objects.all()
+    context = {'list_of_receipts': data}
+    return render(request, 'generate/blah.html', context)
