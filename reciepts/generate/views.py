@@ -26,7 +26,7 @@ def reciepts(request, num):
     context = {'Reciepts': data}
     return render(request, 'generate/reciepts.html', context)
 
-def getRecent(request):
+def getRecentList(request):
     """
 
     :param request: httprequest
@@ -35,3 +35,5 @@ def getRecent(request):
     data = Reciepts.objects.all()
     context = {'list_of_receipts': data}
     return render(request, 'generate/blah.html', context)
+
+
