@@ -37,3 +37,9 @@ def getRecentList(request):
     return render(request, 'generate/blah.html', context)
 
 
+def get_by_name(request, name_of_student):
+
+    #filter function needs to be fixed
+    data = Reciepts.objects.filter('blah')
+    context = {'list_of_receipts': data}
+    return render(request, 'generate/blah.html', context)
