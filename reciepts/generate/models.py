@@ -4,7 +4,7 @@ import inflect
 
 
 #ensure that the last payment id is where the last results is recorded
-last_payment_id = 1
+last_payment_id = 800
 
 
 class Reciepts(models.Model):
