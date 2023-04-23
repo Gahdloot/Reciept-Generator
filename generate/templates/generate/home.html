@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>FORM</title>
+    <link rel="stylesheet" href="{% static 'generate/style.css' %}">
+  </head>
+  <body>
+    <div class="container">
+      <h3 class="text-center">Enter Reciept Details</h3>
+        <form action="{% url 'reciepts:home'%}" method="post">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="name_student">Student Name</label>
+                <input type="text" name="name_student" id="name_student" value="" required>
+            </div>
+
+            <div class="form-group">
+                <label for="name_Payer">Payer Name</label>
+                <input type="text" name="name_Payer" id="name_Payer" value="" required>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                  <label for="amount">Amount</label>
+                  <input type="number" name="amount" id="amount" value="" required>
+              </div>
+              <div class="form-group">
+                  <label for="balance">Balance</label>
+                  <input type="number" name="balance" id="balance" value="" required>
+              </div>
+            </div>
+
+
+
+            <div class="form-group">
+                <label for="description">Description</label>
+                <textarea name="description" id="description" required></textarea>
+            </div>
+
+            <button type="submit" name="button" class="btn-group" >SUBMIT</button>
+        </form>
+    </div>
+  </body>
+</html>

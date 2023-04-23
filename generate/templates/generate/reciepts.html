@@ -1,0 +1,91 @@
+
+<!DOCTYPE html>
+{% load static %}
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Reciept</title>
+    <link rel="stylesheet" href="{% static 'generate/style.css' %}">
+
+  </head>
+  <body>
+      <div id="content" class="container">
+          <div class="reciept__header">
+              <img src="{% static 'generate/Logo.png' %}" alt="school logo" class="img-responsive">
+
+            <div class="reciept__info">
+              <h3 class="text-align:center">CHAPELVILLE NURSERY AND PRIMARY SCHOOL</h3>
+              <p class="reciept__address">1 Chapel of Transfiguration street Off Oba Sekumade Road Ebute Ikorodu Lagos</p>
+              <p>Tel: 0901838838388, 0909309383888</p>
+
+              <div class="reciept__boder-design">
+                  <h3>RECIEPT</h3>
+              </div>
+            </div>
+          </div>
+          <div class="reciept__number-date">
+              <h4>NO: <span>{{Reciepts.reciept_number}}</span></h4>
+              <div class="reciept__date">
+                  <h4>Date: <span> {{Reciepts.date_created}}</span></h4>
+              </div>
+          </div>
+
+          <div style="overflow-x:auto">
+            <table>
+
+                <tbody>
+                  <tr>
+                    <td>Recievd From:</td>
+                    <td>{{Reciepts.name_Payer}}</td>
+                  </tr>
+
+                  <tr>
+                    <td>The sum of:</td>
+                    <td>{{Reciepts.amount_in_words}} naira only</td>
+                  </tr>
+
+                  <tr>
+                    <td>Being Payment of: </td>
+                    <td>{{Reciepts.description}}</td>
+                  </tr>
+
+                  <tr>
+                    <td>Payment in favor of: </td>
+                    <td>{{Reciepts.name_student}}</td>
+                  </tr>
+                </tbody>
+            </table>
+          </div>
+          <div class="reciept__footer">
+              <div class="reciept__amount">
+                <h3>{{Reciepts.amount}}</h3>
+              </div>
+              <div class="reciept__signature">
+                  <h3>Balance: <span>{{Reciepts.balance}}.00</span></h3>
+                  <div class="reciept__signature1">
+                      <img src="{% static 'generate/siggg.png' %}" alt="signature" style="width:100px;">
+                      <h5>From: Bursary</h5>
+                  </div>
+              </div>
+          </div>
+      </div>
+
+      <button type="button" name="button" id="download">EXPORT AS PDF</button>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.3/html2pdf.bundle.min.js"></script>
+
+<script>
+document.getElementById("download").addEventListener("click", function() {
+  var element = document.getElementById("content");
+  var opt = {
+    margin:       0.5,
+    filename:     '{{Reciepts.name_student}}.pdf',
+    image:        { type: 'jpeg', quality: 0.98 },
+    html2canvas:  { scale: 2 },
+    jsPDF:        { unit: 'in', format: 'letter', orientation: 'portrait' }
+  };
+  html2pdf().set(opt).from(element).save();
+});
+</script>
+  </body>
+</html>
