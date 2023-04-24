@@ -21,8 +21,8 @@ class Reciepts(models.Model):
     def save(self, *args, **kwargs):
         words = inflect.engine()
         words = words.number_to_words(self.amount)
-        words.title()
-        self.amount_in_words = words
+
+        self.amount_in_words = words.title()
         return super().save(*args, **kwargs)
 
     @property
